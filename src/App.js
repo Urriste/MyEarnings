@@ -1,16 +1,23 @@
 import "./App.css";
 import Main from "./components/Main.jsx";
-import Nav from "./components/Nav";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import History from "./components/History";
+import StoreProvider from "./store/StoreProvider";
 
 function App() {
   return (
-    <Router>
-      <Nav />
-      <Route exact path="/">
-        <Main />
-      </Route>
-    </Router>
+    /* 
+     Decidi poner el provider en el nivel mas alto para que cualquier nodo hijo pueda acceder */
+    <StoreProvider>
+      <Router>
+        <Route exact path="/">
+          <Main />
+        </Route>
+        <Route exact path="/history">
+          <History></History>
+        </Route>
+      </Router>
+    </StoreProvider>
   );
 }
 
