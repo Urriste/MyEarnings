@@ -23,6 +23,7 @@ const Menu = (props) => {
         <Link to="/history" className="menu-item">
           Historial
         </Link>
+        <p className="menu-publicity">MyEarnings - Lucas Urriste 2021 </p>
       </div>
     </div>
   );
