@@ -15,6 +15,9 @@ const Main = () => {
   const [entrada, setEntrada] = useState(0);
   const [comentario, setComentario] = useState("");
 
+  //creo la fecha que será ingresada en la entrada
+  const date = new Date();
+
   let inputGanancia = document.getElementById("input-ganancia");
   let inputComentario = document.getElementById("input-comentario");
 
@@ -30,7 +33,12 @@ const Main = () => {
 
   const handleDispatch = () => {
     //creamos el objeto que va a ser insertado dentro del nuevo estado global
-    const newGanancia = { total: entrada, comentario: comentario };
+    const newGanancia = {
+      total: entrada,
+      comentario: comentario,
+      fecha:
+        date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear(),
+    };
     //con la funcion dispatch le paso al reducer que funcion ejecutar, y con el payload le paso el dato a agregar
     dispatch({
       type: types.AGREGAR_GANANCIA,

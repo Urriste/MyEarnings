@@ -12,8 +12,6 @@ const History = () => {
   //uso el object destructuring para obtener el valor que quiero usar especificamente
   const { ganancia } = store;
 
-  //creo la fecha que será ingresada en la entrada
-  const date = new Date();
   const [menu, setMenu] = useState(false);
 
   return (
@@ -51,14 +49,7 @@ const History = () => {
                     <tr key={index} className="table-items">
                       <td className="table-items">${item.total}</td>
                       <td className="table-items">{item.comentario}</td>
-                      <td className="table-items">
-                        {" "}
-                        {date.getDate() +
-                          "/" +
-                          (date.getMonth() + 1) +
-                          "/" +
-                          date.getFullYear()}
-                      </td>
+                      <td className="table-items">{item.fecha}</td>
                     </tr>
                   );
                 })
